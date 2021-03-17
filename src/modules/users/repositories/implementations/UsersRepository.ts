@@ -44,12 +44,17 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    receivedUser.admin = true;
-    return receivedUser;
+    const user = receivedUser;
+
+    user.admin = true;
+
+    return user;
   }
 
   list(): User[] {
-    return this.users;
+    const users: User[] = this.users.map((user) => user);
+
+    return users;
   }
 }
 
